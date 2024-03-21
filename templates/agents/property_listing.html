@@ -1,0 +1,90 @@
+{% extends 'Navbar/agentsnavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Property Listing Form</title>
+    <!-- Add your CSS stylesheets or links here if needed -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+    {% block body %}
+        <div>
+            <h1>This is Property Listing for Agents</h1>
+            <div class="container mt-5">
+                <h3>Property Detail Form</h3>
+                <form method="post" action="{%url 'add_agents_details'%}">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="property_title">Property_title</label>
+                        <input type="text" class="form-control" name="property_title" id="property_title" placeholder="Enter the property title">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="property_cost">Property_cost</label>
+                        <input type="text" class="form-control" name="property_cost" id="property_cost" placeholder="Enter the property cost">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="property_type">Property_type</label>
+                        <select class="form-control" name="property_type" id="property_type">
+                            <option value="residential">Residential</option>
+                            <option value="commercial">Commercial</option>
+                            <option value="industrial">Industrial</option>
+                            <!-- Add more options as needed -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="benefits">benefits</label>
+                        <textarea class="form-control" name="benefits" id="benefits" rows="2" placeholder="Enter the benefits"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="listing">listing</label>
+                        <input type="text" class="form-control" name="listing" id="listing" placeholder="Listing">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="property_location">Property_location</label>
+                        <input type="text" class="form-control" name="property_location" id="property_location" placeholder="Enter the property location">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="property_requirements">Property_requirements</label>
+                        <input type="text" class="form-control" name="property_requirements" id="property_requirements" placeholder="Enter the property requirements">
+                    </div>
+
+                    <!-- Add other form fields as needed -->
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>

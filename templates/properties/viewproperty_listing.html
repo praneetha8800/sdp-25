@@ -1,0 +1,34 @@
+{% extends 'Navbar/propertiesnavbar.html' %}
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block body %}
+        <div class="container mt-5">
+            <h2>Property Details List</h2>
+            <div class="row">
+                {% for agents_details in agents_details_list %}
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ agents_details.property_title }}</h5>
+                                <p class="card-text">Property Cost: {{ agents_details.property_cost }}</p>
+                                <p class="card-text">Benefits: {{ agents_details.benefits }}</p>
+                                <p class="card-text">Listing: {{ agents_details.listing }}</p>
+                                <p class="card-text">Property Location: {{ agents_details.property_location }}</p>
+                                <p class="card-text">Property Requirements: {{ agents_details.property_requirements }}</p>
+                                <a href="#" class="btn btn-success">Apply to this property</a>
+
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% endblock %}
+</body>
+</html>
